@@ -733,9 +733,10 @@ async function addPool(poolParams: PoolParams): Promise<void> {
   let accountRegistered = null
 
   /*** Workaround Free Community Farm pool ***/
-  if(poolParams.html.formId == "nearcon" || poolParams.html.formId == "cheddar") {
-    //console.log("NEARCON")
+  if(poolParams.html.formId == "nearcon") {
+    console.log("NEARCON")
     accountRegistered = await poolParams.tokenContract.storageBalance();
+    console.log(accountRegistered)
   }
   else if(contractParams.farming_rate){
     accountRegistered = await poolParams.contract.storageBalance();
